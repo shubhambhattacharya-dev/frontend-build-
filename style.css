@@ -1,0 +1,199 @@
+/* Custom CSS Variables */
+:root {
+    --primary: #0d6efd;
+    --secondary: #6c757d;
+    --dark: #212529;
+    --light: #f8f9fa;
+    --gradient: linear-gradient(135deg, #0d6efd 0%, #6610f2 100%);
+  }
+  
+  /* Base Styles */
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+  }
+  
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--dark);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 4px;
+  }
+  
+  /* Navigation Enhancements */
+  .navbar {
+    transition: all 0.3s ease;
+    background: rgba(33, 37, 41, 0.95) !important;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar-brand {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  
+  .nav-link {
+    position: relative;
+    padding: 0.5rem 1rem !important;
+  }
+  
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: width 0.3s ease;
+  }
+  
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    width: 100%;
+  }
+  
+  /* Hero Section Enhancements */
+  #home {
+    background: var(--gradient);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  #home:before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+    transform: rotate(45deg);
+  }
+  
+  #home img {
+    transform: perspective(1000px) rotateY(15deg);
+    border: 3px solid rgba(255,255,255,0.1);
+    box-shadow: 20px 20px 50px rgba(0,0,0,0.3);
+    transition: transform 0.5s ease;
+  }
+  
+  #home img:hover {
+    transform: perspective(1000px) rotateY(0);
+  }
+  
+  /* Skills Section Animation */
+  .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+  }
+  
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+  }
+  
+  .card i {
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover i {
+    transform: scale(1.2);
+  }
+  
+  /* Project Carousel Enhancements */
+  .carousel-caption {
+    bottom: -100%;
+    transition: bottom 0.5s ease;
+    backdrop-filter: blur(5px);
+    background: rgba(0,0,0,0.7) !important;
+  }
+  
+  .carousel-item:hover .carousel-caption {
+    bottom: 0;
+  }
+  
+  /* Contact Form Styling */
+  .form-control {
+    background: rgba(255,255,255,0.05) !important;
+    border: 1px solid rgba(255,255,255,0.1);
+    color: var(--light) !important;
+    transition: all 0.3s ease;
+  }
+  
+  .form-control:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+  }
+  
+  /* Social Icons */
+  .bi {
+    transition: all 0.3s ease;
+  }
+  
+  .bi:hover {
+    color: var(--primary) !important;
+    transform: translateY(-3px);
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .animate-fadeIn {
+    animation: fadeIn 1s ease forwards;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .navbar {
+      backdrop-filter: none;
+    }
+    
+    #home img {
+      transform: none;
+      margin-top: 2rem;
+    }
+    
+    .carousel-caption {
+      bottom: 0;
+      background: rgba(0,0,0,0.5) !important;
+    }
+  }
+  
+  /* Back to Top Button */
+  .back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 40px;
+    height: 40px;
+    background: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 1000;
+  }
+  
+  .back-to-top.show {
+    opacity: 1;
+  }
+  
+  .back-to-top:hover {
+    transform: translateY(-5px);
+  }
